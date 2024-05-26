@@ -3,7 +3,7 @@ package edu.pxu.lthdt.bai03;
 public class XeBus {
 
     // Khai báo các thuộc tính
-    private String hangxe;   
+    private String hangxe;   //
     private int namsanxuat;   
     private float dongco;       
     private int soghe;         

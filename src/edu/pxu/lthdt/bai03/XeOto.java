@@ -4,7 +4,7 @@ public class XeOto {
     // Khai báo các thuộc tính 
     private String hangxe;       
     private int namsanxuat;       
-    private float dongco;      
+    private float dongco;  //    
 
     // Constructor không tham số để tạo đối tượng XeOTO trống 
     public XeOto() {
