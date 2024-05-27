@@ -1,56 +1,62 @@
 package edu.pxu.lthdt.bai03;
 
+import java.time.Year;
+
 public class XeOto {
-    // Khai báo các thuộc tính 
-    private String hangxe;       
-    private int namsanxuat;       
-    private float dongco;  //    
+    private String hangXe;
+    private int namSanXuat;
+    private int dongCo;
 
-    // Constructor không tham số để tạo đối tượng XeOTO trống 
-    public XeOto() {
-        super();
+    public XeOto(String hangXe, int namSanXuat, int dongCo) {
+        this.hangXe = hangXe;
+        this.setNamSanXuat(namSanXuat);
+        this.setDongCo(dongCo);
     }
 
-    // Constructor 
-    public XeOto(String hangxe, int namsanxuat, float dongco) {
-        super();
-        this.hangxe = hangxe;
-        this.namsanxuat = namsanxuat;
-        this.dongco = dongco;
+    public String getHangXe() {
+        return hangXe;
     }
 
-    // Các phương thức getter và setter cho các thuộc tính
-    public String getHangxe() {
-        return hangxe;
+    public void setHangXe(String hangXe) {
+        this.hangXe = hangXe;
     }
 
-  
-    public void setHangxe(String hangxe) {
-        this.hangxe = hangxe;
+    public int getNamSanXuat() {
+        return namSanXuat;
     }
 
- 
-    public int getNamsanxuat() {
-        return namsanxuat;
+    public void setNamSanXuat(int namSanXuat) {
+        int currentYear = Year.now().getValue();
+        if (namSanXuat < 1829 || namSanXuat > currentYear) {
+            System.out.println("Năm sản xuất không hợp lệ");
+        } else {
+            this.namSanXuat = namSanXuat;
+        }
     }
 
-  
-    public void setNamsanxuat(int namsanxuat) {
-        this.namsanxuat = namsanxuat;
+    public int getDongCo() {
+        return dongCo;
     }
 
-    public float getDongco() {
-        return dongco;
+    public void setDongCo(int dongCo) {
+        if (dongCo >= 150 && dongCo <= 800) {
+            this.dongCo = dongCo;
+        } else {
+            System.out.println("Công suất động cơ không hợp lệ, phải nằm trong khoảng 150 đến 800 mã lực");
+        }
     }
 
-   
-    public void setDongco(float dongco) {
-        this.dongco = dongco;
-    }
-
-    // Ghi đè phương thức toString() để cung cấp chuỗi mô tả đối tượng XeOTO
     @Override
     public String toString() {
-        return "XeOTO [hangxe=" + hangxe + ", namsanxuat=" + namsanxuat + ", dongco=" + dongco + "]";
+        if (namSanXuat == 0 || dongCo == 0) {
+            return "Xe Oto{" + "hãng xe=" + hangXe + '}';
+        } else if (namSanXuat == 0) {
+            return "Xe Oto{" + "hãng xe=" + hangXe + ", công suất động cơ=" + dongCo + '}';
+        } else if (dongCo == 0) {
+            return "Xe Oto{" + "hãng xe=" + hangXe + ", năm sản xuất=" + namSanXuat + '}';
+        } else {
+            return "Xe Oto{" + "hãng xe=" + hangXe + ", năm sản xuất=" + namSanXuat + ", công suất động cơ=" + dongCo + '}';
+        }
     }
+
 }
